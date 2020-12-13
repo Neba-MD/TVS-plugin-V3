@@ -76,9 +76,9 @@ public abstract class Command {
                 try {
                     notifyCaller();
                 } catch (Exception e) {
-                    Testing.Log(ex);
+                    e.printStackTrace();
                 }
-                Testing.Log(ex);
+                ex.printStackTrace();
             }
 
             lock1.unlock();
@@ -122,9 +122,9 @@ public abstract class Command {
                 try {
                     notifyCaller();
                 } catch (Exception e) {
-                    Testing.Log(e);
+                    e.printStackTrace();
                 }
-                Testing.Log(ex);
+                ex.printStackTrace();
             }
 
 

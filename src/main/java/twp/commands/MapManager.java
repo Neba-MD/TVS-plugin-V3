@@ -8,7 +8,6 @@ import mindustry.maps.Map;
 import twp.Main;
 import twp.database.maps.MapData;
 import twp.database.maps.MapHandler;
-import twp.tools.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -98,7 +97,7 @@ public class MapManager extends Command {
                     db.maps.hideMap(mid);
                     if ( !Main.testMode) Core.app.post(()-> Vars.maps.reload());
                 } catch (IOException e) {
-                    if (args[0].equals("disable")) Testing.Log(e);
+                    if (args[0].equals("disable")) e.printStackTrace();
                 }
 
                 if (args[0].equals("remove")) {

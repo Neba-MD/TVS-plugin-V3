@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import twp.database.PD;
 import org.jsoup.Jsoup;
-import twp.tools.*;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,7 +32,7 @@ public class Bundle {
             String json = Jsoup.connect("http://ipapi.co/"+ip+"/json").ignoreContentType(true).timeout(3000).execute().body();
             return mapper.readValue(json, jt);
         } catch (IOException e) {
-            Testing.Log(e);
+            e.printStackTrace();
         }
         return null;
     }
