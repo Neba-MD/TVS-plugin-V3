@@ -5,7 +5,7 @@ import twp.database.core.Raw;
 import twp.database.enums.RankType;
 import twp.database.enums.Stat;
 
-import static twp.Main.*;
+import static twp.Main.ranks;
 
 public class Account extends Raw {
 
@@ -52,20 +52,13 @@ public class Account extends Raw {
     }
 
     public long getLatestActivity() {
-        Long la = data.getLong("lastActive");
-        if (la == null) {
-            return 0;
-        }
-
-        return la;
+        return (Long) data.get("lastActive");
     }
 
     public Rank getRank(RankType type) {
         String rankName = (String) data.get(type.name());
         if (rankName == null) {
-            // there is some corruption going on so this is needed
-            db.handler.setRank(getId(), ranks.newcomer, RankType.rank);
-            return ranks.newcomer;
+            return null;
         }
         return ranks.getRank(rankName, type);
     }
