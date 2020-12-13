@@ -5,7 +5,6 @@ import mindustry.gen.Call;
 import twp.Main;
 import twp.database.PD;
 import twp.database.enums.Setting;
-import twp.tools.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -18,7 +17,7 @@ public class Hud {
 
     public Hud() {
         displayable.add(Voting.processor);
-        Logging.on(Main.TickEvent.class, e -> update());
+        Events.on(Main.TickEvent.class, e -> update());
     }
 
     public void sendMessage(String message, Object[] args, int seconds, String ...colors) {

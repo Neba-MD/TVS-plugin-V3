@@ -33,7 +33,7 @@ public class Bundle {
             String json = Jsoup.connect("http://ipapi.co/"+ip+"/json").ignoreContentType(true).timeout(3000).execute().body();
             return mapper.readValue(json, jt);
         } catch (IOException e) {
-            Logging.log(e);
+            Testing.Log(e);
         }
         return null;
     }
